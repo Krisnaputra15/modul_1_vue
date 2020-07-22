@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <script src="vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <title>Hello World</title>
     </head>
     <body>
 
         <div id="app">
-            <h3>{{judul}}</h3>
+            <h3>Masukkan nama guru</h3>
           <form v-on:submit.prevent>
               <input type="text" name="namaSiswa" id="namaSiswa" @keyup.enter="simpan" v-model="guru">
               <button type="button" @click="simpan">Simpan</button>
@@ -28,31 +29,30 @@
         </div>
        
 
-        <script>
+       <script>
             var app = new Vue({
-                el : "#app",
-                methods : {
-                    pesan : function(){
-                        alert("selamat belajar vue.js")
+                el: "#app",
+                methods: {
+                    pesan: function() {
+                        alert("Selamat belajar Vue.js")
+                    },
+                    simpan: function() {
+                        this.dataGuru.push(this.guru);
+                        this.guru = "";
                     }
                 },
-                simpan : function(){
-                    this.dataGuru.push(this.guru);
-                    this.guru = "";
-                },
-                data : {
+                data: {
                     'dataGuru' : [
-                        {'Nama' : 'Arya', 'Kelas' : 'XRPL1'},
-                        {'Nama' : 'Bella', 'Kelas' : 'XRPL2'},
-                        {'Nama' : 'Chintya', 'Kelas' : 'XIRPL1'},
-                        {'Nama' : 'Doni', 'Kelas' : 'XIRPL2'},
-                        {'Nama' : 'Elma', 'Kelas' : 'XIIRPL1'},
-                        {'Nama' : 'Farhan', 'Kelas' : 'XIIRPL2'},
+                        {'nama' : 'Arya', 'kelas' : 'XRPL1'},
+                        {'nama' : 'Bella', 'kelas' : 'XRPL2'},
+                        {'nama' : 'Cintya', 'kelas' : 'XIRPL1'},
+                        {'nama' : 'Doni', 'kelas' : 'XIRPL2'},
+                        {'nama' : 'Elma', 'kelas' : 'XIIRPL1'},
+                        {'nama' : 'Farha', 'kelas' : 'XIIRPL2'},
                     ],
-                    'guru' : '',
-                    'judul' : 'Masukkan nama guru'
+                    'guru' : ''
                 }
-             })
-        </script>
+            })
+    </script>
     </body>
 </html>
